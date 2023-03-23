@@ -12,10 +12,6 @@
     $email = $_POST['email'];
     $content = $_POST['content'];
 
-    // echo $nickname;
-    // echo $email;
-    // echo $content;
-
     if($nickname == ''){
         $nickname_result = 'ニックネームが入力されておりません';
     }else{
@@ -24,13 +20,14 @@
     if($email == ''){
         $email_result = 'メールアドレスが入力されておりません';
     }else{
-        $email_result = $nickname;
+        $email_result = $email;
     }
     if($content == ''){
         $content_result = 'お問い合わせ内容が入力されておりません';
     }else{
-        $content_result = $nickname;
+        $content_result = $content;
     }
+
     ?>
 
     <!DOCTYPE html>
@@ -43,9 +40,16 @@
     </head>
     <body>
         <h1>！入力内容をご確認ください！</h1>
-        <p>ニックネーム：<?php echo $nickname_result ?></p>
-        <p>メールアドレス：<?php echo $email_result ?></p>
+        <p>nickname：<?php echo $nickname_result ?></p>
+        <p>email：<?php echo $email_result ?></p>
         <p>お問い合わせ内容：<?php echo $content_result ?></p>
+
+        <form action="thanks.php" method="POST">
+            <input type="hidden" name="nickname" value="<?php echo $nickname; ?>">
+            <input type="hidden" name="email" value="<?php  echo $email; ?>">
+            <input type="hidden" name="content" value="<?php echo $content; ?>">
+            <input type="submit" value="送信OK">
+        </form>
     </body>
     </html>
 
