@@ -10,8 +10,8 @@
     $email = $_POST['email'];
     $content = $_POST['content'];
 
-    // データベース接続
-        // phpmyadmin の phpkiso へ接続したい
+    // step1:データベース接続
+        // phpmyadmin の phpkiso へ接続する
         // アカウント名
         // パスワード
         // phpからデータベースへアクセスするために使う、phpが用意した技
@@ -21,7 +21,7 @@
     $dbh = new PDO($dsn, $user, $password);
     $dbh->query('SET NAMES utf8');
 
-    // SQL文の実行
+    // step2:SQL文の実行
     $sql = 'INSERT INTO `survey`(`nickname`, `email`, `content`) VALUES ("'.$nickname.'", "'.$email.'", "'.$content.'")';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
