@@ -32,3 +32,5 @@
     // $test = ['id'=>1, 'mickname'=>'たろう'];
     // var_dump($test);
 
+?>
+
